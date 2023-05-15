@@ -32,4 +32,4 @@ select opt in OPTIONS; do
         sudo apt-get install intel-microcode
     elif ["$opt" = "2nd-amd64"] then
         sudo apt-get install amd64-microcode
-fi
+    fi
