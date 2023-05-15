@@ -24,14 +24,12 @@ apt-get install -y lshw
 apt-get install -y neofetch
 apt-get install -y sudo
 apt update
-echo -e "${GREEN}[*] What is your cpu ?${NC}"
-read cpu
-if [["$cpu" == "intel"]]; then
-    echo "intel cpu"
-    sleep 1
-    sudo apt-get install intel-microcode
-else
-    echo "amd cpu"
-    sleep 1
-    sudo apt install amd64-microcode
+echo -e "${GREEN}[*] What is your cpu (intel) or (amd) right one only ?${NC}"
+echo -e "${GREEN}[*] if your cpu intel select 1st or is amd select 2nd"
+OPTIONS="select your system cpu"
+select opt in OPTIONS; do
+    if [["$opt" = "1st-intel"]]; then
+        sudo apt-get install intel-microcode
+    elif ["$opt" = "2nd-amd64"] then
+        sudo apt-get install amd64-microcode
 fi
