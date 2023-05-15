@@ -3,15 +3,17 @@
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-echo -e "${GREEN}[*] CasaosToolkit{NC}"
-echo -e "${GREEN}[*] Setting Up Directories${NC}"
+echo -e "${GREEN}[*] CasaosToolkit Intel and AMD${NC}"
+echo -e "${GREEN}[*] Setting Up Packages And Serviecs${NC}"
 
 cd $HOME
 mkdir tvtc
 mkdir ~/tvtc/backups
 
 echo -e "${GREEN}[*] Installing Essentials${NC}"
+sleep 1
 cat /etc/apt/sources.list | grep "bullseye main contrib non-free" || sudo sed -i "s/bullseye main/bullseye main contrib non-free/g" /etc/apt/sources.list
+sleep 1 
 apt update
 apt install -y git
 apt install -y vim
@@ -22,14 +24,15 @@ apt install -y python-pip
 apt install -y nano
 apt install -y sudo
 apt install -y lshw
+apt install -y neofetch
 apt install -y htop
 apt update
-sleep 3
+sleep 2
 echo -e "${GREEN}[*] Select Pc Cpu{NC}"
 echo "Whats is your Cpu AMD or Intel ?"
 read cpu
 if [[ "$cpu" != "intel" ]]; then
-	echo "Intel CPU"
+    echo "Intel CPU"
 	sleep 1
 	sudo apt install intel-microcode
 else	
@@ -39,7 +42,7 @@ else
 fi
 
 echo -e "${GREEN}[*] install Casaos{NC}"
-sleep 1
+sleep 2
 echo -e "\e[0m\c"
 
 # shellcheck disable=SC2016
